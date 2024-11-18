@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deus é pai e não padrasto</title>
+       <script src="Js/scripts.js"></script>
+    </head>
+    <body>
+        <h2>Verifique se a letra é uma vogal ou consoante</h2>
+    <label for="letra">Digite uma letra:</label>
+    <input type="text" id="letra" maxlength="1" />
+    <button onclick="verificarLetra()">Verificar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function verificarLetra() {
+            
+            const letra = document.getElementById('letra').value.trim().toLowerCase();
+            const resultadoElement = document.getElementById('resultado');
+            
+            
+            if (letra.length !== 1 || !/^[a-záàãâéèêíïóôõöúç]$/i.test(letra)) {
+                resultadoElement.textContent = 'Por favor, insira uma letra válida.';
+                return;
+            }
+            
+            
+            if (['a', 'e', 'i', 'o', 'u'].includes(letra)) {
+                resultadoElement.textContent = `${letra.toUpperCase()} é uma vogal.`;
+            } else {
+                resultadoElement.textContent = `${letra.toUpperCase()} é uma consoante.`;
+            }
+        }
+    </script>
+    </body>
+</html>
